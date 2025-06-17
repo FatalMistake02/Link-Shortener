@@ -95,7 +95,7 @@ app.post('/shorten', async (req, res) => {
     clicks: 0,
   });
 
-  res.json({ shortUrl: `http://localhost:3000/${shortCode}` });
+  res.json({ shortUrl: `http://shortlink.fatalmistake02.com/${shortCode}` });
 });
 
 
