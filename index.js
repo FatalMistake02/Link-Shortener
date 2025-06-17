@@ -1,5 +1,5 @@
 const express = require('express');
-const sqlite3 = require('sqlite3').verbose();
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const crypto = require('crypto');
 const app = express();
 const port = 3000;
@@ -22,16 +22,28 @@ app.get('/', (req, res) => {
 });
 
 
-// Middleware to parse JSON body
+
 app.use(express.json());
 
 
-// Helper to generate random short code
 function generateCode(length = 6) {
   return crypto.randomBytes(length).toString('base64url').slice(0, length);
 }
 
-// Endpoint to shorten a URL
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+function isBlocked(url) {
+  const blockedKeywords = [''];
+  return blockedKeywords.some(keyword => url.toLowerCase().includes(keyword));
+}
+
+
 app.post('/shorten', async (req, res) => {
   const { url, custom } = req.body;
 
@@ -43,7 +55,7 @@ app.post('/shorten', async (req, res) => {
     return res.json({ error: 'This URL is blocked due to policy' });
   }
 
-  // Check with Google Safe Browsing
+
   try {
     const isUnsafe = await checkGoogleSafeBrowsing(url);
     if (isUnsafe) {
@@ -54,9 +66,9 @@ app.post('/shorten', async (req, res) => {
     return res.json({ error: 'Error checking URL safety' });
   }
 
-  // Continue with link shortening...
+
   let shortCode = custom || Math.random().toString(36).substring(2, 8);
-  // Validate custom, check availability...
+
 
   await db.collection('links').doc(shortCode).set({
     url,
@@ -69,9 +81,6 @@ app.post('/shorten', async (req, res) => {
 
 
 
-
-
-// Redirect endpoint
 app.get('/:code', async (req, res) => {
   const code = req.params.code;
   const doc = await db.collection('links').doc(code).get();
@@ -82,7 +91,7 @@ app.get('/:code', async (req, res) => {
 
   const data = doc.data();
 
-  // Optional: increment click count
+
   await db.collection('links').doc(code).update({
     clicks: (data.clicks || 0) + 1
   });
@@ -103,10 +112,8 @@ app.listen(port, () => {
 
 
 
-import fetch from 'node-fetch';  // if using ES modules
-// or for CommonJS:
-const fetch = require('node-fetch');
 
+// or for CommonJS:
 const API_KEY = process.env.GSB_API_KEY;  // Store your API key safely in .env!
 
 async function checkGoogleSafeBrowsing(url) {

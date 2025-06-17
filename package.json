@@ -6,8 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "FatalMiastek02",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "dotenv": "^16.5.0",
