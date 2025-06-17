@@ -1,4 +1,4 @@
-
+.gitignore
 node_modules/
 
 .env
@@ -12,3 +12,4 @@ Thumbs.db
 npm-debug.log*
 
 urls.db
+stuff.txt
