@@ -1,15 +1,9 @@
-.gitignore
+
 node_modules/
-
-.env
-
 firebase-key.json
-
 .DS_Store
 Thumbs.db
-
 *.log
 npm-debug.log*
-
 urls.db
-stuff.txt
+test.html
