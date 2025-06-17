@@ -1,4 +1,4 @@
-
+.env
 node_modules/
 firebase-key.json
 .DS_Store
