@@ -66,11 +66,25 @@
       border: 1px solid rgb(0, 247, 255);
       border-radius: 4px;
     }
+    #result-url {
+        color: rgb(0, 247, 255);
+    }
     #error {
       color: #c00;
       margin-top: 10px;
       text-align: center;
     }
+    #credits {
+  margin-top: 130px;
+  text-align: center;
+  color: #616161;
+  display: flex;
+  flex-direction: column;
+}
+
+credit {
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -81,6 +95,10 @@
   </form>
   <div id="error"></div>
   <div id="result"></div>
+      <div id="credits">
+      <credit id="fb" onclick="location.href='https://firebase.google.com/'">Firebase</credit>
+      <credit id="r"  onclick="location.href='https://render.com'">Render</credit>
+    </div>
 
   <script>
 
@@ -115,7 +133,7 @@
         }
 
         const data = await response.json();
-        resultDiv.innerHTML = `Short URL: <a href="${data.shortUrl}" target="_blank" rel="noopener noreferrer">${data.shortUrl}</a>`;
+        resultDiv.innerHTML = `Short URL: <a href="${data.shortUrl}" target="_blank" rel="noopener noreferrer" id="result-url">${data.shortUrl}</a>`;
         urlInput.value = '';
       } catch (err) {
         errorDiv.textContent = 'Network error or server is down.';

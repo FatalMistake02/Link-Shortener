@@ -86,7 +86,7 @@ app.post('/shorten', async (req, res) => {
   }
 
 
-  let shortCode = custom || Math.random().toString(36).substring(2, 8);
+  let shortCode = custom || Math.random().toString(36).substring(2, 7);
 
 
   await db.collection('links').doc(shortCode).set({
@@ -95,7 +95,7 @@ app.post('/shorten', async (req, res) => {
     clicks: 0,
   });
 
-  res.json({ shortUrl: `http://shortlink.fatalmistake02.com/${shortCode}` });
+  res.json({ shortUrl: `https://x.fatalmistake02.com/${shortCode}` });
 });
 
 
