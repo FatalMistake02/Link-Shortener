@@ -90,7 +90,7 @@ credit {
     display: flex;
     flex-direction: row;
     height: 22px;
-    margin-top: 180px;
+    margin-top: 160px;
     justify-content: center;
     gap: 10px;
 }
@@ -104,6 +104,12 @@ credit {
   font-size: 22px;
   cursor: pointer;
 }
+#custom {
+  margin-top: 30px;
+  justify-self: center;
+  color: #808080;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -114,6 +120,7 @@ credit {
   </form>
   <div id="error"></div>
   <div id="result"></div>
+  <div id="custom" onclick="location.href='/customslug'">Want a custom slug?</div>
   <div id="links">
      <img id="fatal" src="https://cdn.modrinth.com/data/crOs4RtF/61ee4895426ec0f0a71bcaf83f3ea19c6bbfbc88.png" onclick="location.href='https://fatalmistake02.com/'">
      <span id="github" onclick="location.href='https://github.com/FatalMistake02/Link-Shortener'"><i class="fa-brands fa-github"></i></span>
