@@ -6,9 +6,6 @@ const port = 3000;
 const path = require('path');
 const admin = require('firebase-admin');
 require('dotenv').config();
-//////////////////////////////////////////////
-
-// const serviceAccount = require('./firebase-key.json');
 
 const serviceAccount = {
   type: process.env.firebase_type,
@@ -23,8 +20,6 @@ const serviceAccount = {
   client_x509_cert_url: process.env.firebase_client_x509_cert_url,
   universe_domain: process.env.firebase_universe_domain
 };
-
-/////////////////////////////////////////////
 
 
 admin.initializeApp({
@@ -125,15 +120,7 @@ app.listen(port, () => {
 
 
 
-
-
-
-
-
-
-
-// or for CommonJS:
-const API_KEY = process.env.GSB_API_KEY;  // Store your API key safely in .env!
+const API_KEY = process.env.GSB_API_KEY;
 
 async function checkGoogleSafeBrowsing(url) {
   const body = {
