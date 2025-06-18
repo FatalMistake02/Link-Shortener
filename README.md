@@ -9,3 +9,11 @@ Put in a link and click shorten. That's it.
 Shortened link will be https://x.fatalmistake02.com/xxxxx, xxxxx being the random slug.
 
 I can add custom slugs by request. [Custom Slug](https://customslug.fatalmistake02.com/slug)
+
+---
+
+Powered by: 
+
+[Render](https://render.com)
+
+[Firebase](https://firebase.google.com/)
