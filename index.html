@@ -75,7 +75,7 @@
       text-align: center;
     }
     #credits {
-  margin-top: 130px;
+  margin-top: 60px;
   text-align: center;
   color: #616161;
   display: flex;
@@ -84,6 +84,10 @@
 
 credit {
   cursor: pointer;
+}
+#links{
+    display: flex;
+    flex-direction: row;
 }
   </style>
 </head>
@@ -95,6 +99,9 @@ credit {
   </form>
   <div id="error"></div>
   <div id="result"></div>
+  <div id="links">
+     <img id="fatal" scr="https://cdn.modrinth.com/data/crOs4RtF/61ee4895426ec0f0a71bcaf83f3ea19c6bbfbc88.png" onclick="location.href='https://fatalmistake02.com/'">
+  </div>
       <div id="credits">
       <credit id="fb" onclick="location.href='https://firebase.google.com/'">Firebase</credit>
       <credit id="r"  onclick="location.href='https://render.com'">Render</credit>
