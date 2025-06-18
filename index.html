@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Link Shortener</title>
   <style>
     body {
@@ -75,7 +76,7 @@
       text-align: center;
     }
     #credits {
-  margin-top: 60px;
+  margin-top: 10px;
   text-align: center;
   color: #616161;
   display: flex;
@@ -88,6 +89,20 @@ credit {
 #links{
     display: flex;
     flex-direction: row;
+    height: 22px;
+    margin-top: 180px;
+    justify-content: center;
+    gap: 10px;
+}
+#fatal {
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 1px;
+  margin-bottom: -1px;
+}
+#github {
+  font-size: 22px;
+  cursor: pointer;
 }
   </style>
 </head>
@@ -100,11 +115,13 @@ credit {
   <div id="error"></div>
   <div id="result"></div>
   <div id="links">
-     <img id="fatal" scr="https://cdn.modrinth.com/data/crOs4RtF/61ee4895426ec0f0a71bcaf83f3ea19c6bbfbc88.png" onclick="location.href='https://fatalmistake02.com/'">
+     <img id="fatal" src="https://cdn.modrinth.com/data/crOs4RtF/61ee4895426ec0f0a71bcaf83f3ea19c6bbfbc88.png" onclick="location.href='https://fatalmistake02.com/'">
+     <span id="github" onclick="location.href='https://github.com/FatalMistake02/Link-Shortener'"><i class="fa-brands fa-github"></i></span>
   </div>
       <div id="credits">
       <credit id="fb" onclick="location.href='https://firebase.google.com/'">Firebase</credit>
       <credit id="r"  onclick="location.href='https://render.com'">Render</credit>
+      <credit id="fa" onclick="location.href='https://fontawesome.com/'">Font Awesome</credit>
     </div>
 
   <script>
